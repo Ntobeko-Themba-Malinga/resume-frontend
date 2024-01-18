@@ -1,0 +1,42 @@
+#skills-page {
+    background: linear-gradient(135deg, #fff, #333333a4);
+    width: 100%;
+    min-height: 100vh;
+}
+
+#skills-header {
+    padding: 1rem;
+    border-bottom: 2px solid #333;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 2px 2px 2px #8ea1df;
+}
+
+#skills-body {
+    padding: 2rem;
+    text-align: center;
+}
+
+#skills-body ul {
+    list-style: none;
+    border: #333 solid 2px;
+    border-radius: 0.5rem;
+    box-shadow: 4px 4px 4px #8ea1df;
+}
+
+#skills-body ul li {
+    font-weight: 400;
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+    border-bottom: 0.2rem solid #fff;
+    border-radius: 1rem;
+    padding: 1rem 0;
+}
+
+@media (max-width: 1024px) {
+    #about-body p {
+        width: 90%;
+    }
+}

@@ -1,0 +1,39 @@
+#about-page {
+    background: linear-gradient(135deg, #fff, #333333a4);
+    width: 100%;
+    min-height: 100vh;
+}
+
+#about-header {
+    padding: 1rem;
+    border-bottom: 2px solid #333;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 2px 2px 2px #8ea1df;
+}
+
+#about-body {
+    padding: 2rem;
+    text-align: center;
+}
+
+#about-body h2 {
+    margin: 2rem 0;
+    font-size: 3rem;
+    text-decoration: underline;
+    color: #8ea1df;
+    text-shadow: -1.5px 1.5px 4px black;
+}
+
+#about-body p {
+    width: 40%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+@media (max-width: 1024px) {
+    #about-body p {
+        width: 90%;
+    }
+}
