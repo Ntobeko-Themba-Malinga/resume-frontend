@@ -18,7 +18,7 @@
 }
 
 #contact-form {
-    border: #333 solid 2px;
+    border: #444444 solid 2px;
     border-radius: 0.5rem;
     box-shadow: 4px 4px 4px #8ea1df;
     padding: 1rem;
@@ -31,10 +31,15 @@
     margin-bottom: 1rem;
     padding: 1rem;
     font-size: 1.4rem;
+    box-shadow: 4px 4px 4px #8ea1df;
+    border: none;
 }
 
 #contact-form #message-input {
     width: 33%;
+    box-shadow: 4px 4px 4px #8ea1df;
+    border: none;
+    margin-bottom: 1rem;
 }
 
 #contact-form #submit-input {
@@ -44,6 +49,7 @@
     cursor: pointer;
     background-color: #8ea1df;
     border: none;
+    box-shadow: 4px 4px 4px #333;
 }
 
 @media (max-width: 1024px) {

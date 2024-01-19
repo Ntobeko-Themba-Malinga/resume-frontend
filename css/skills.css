@@ -30,8 +30,9 @@
     display: flex;
     justify-content: space-around;
     margin-bottom: 1rem;
-    border-bottom: 0.2rem solid #fff;
-    border-radius: 1rem;
+    border-bottom: 0.2rem solid #333;
+    box-shadow: 0px 2px 2px #8ea1df;
+    /* border-radius: 1rem; */
     padding: 1rem 0;
 }
 

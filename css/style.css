@@ -3,6 +3,10 @@
     padding: 0;
 }
 
+h1, h2, h3, h4, h5, p {
+    text-shadow: -1.5px 1.5px 2px #8ea1df;
+}
+
 #menu-icon {
     display: none;
 }
@@ -125,7 +129,7 @@ nav ul li {
         display: block;
         position: absolute;
         top: 0.5rem;
-        right: 1.5rem;
+        right: 0.7rem;
         z-index: 3;
     }
 
