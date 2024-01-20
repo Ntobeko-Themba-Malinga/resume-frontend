@@ -3,6 +3,14 @@
     padding: 0;
 }
 
+.success {
+    background-color: rgb(84, 228, 84);
+}
+
+.failure {
+    background-color: rgb(255, 56, 56);
+}
+
 h1, h2, h3, h4, h5, p {
     text-shadow: -1.5px 1.5px 2px #8ea1df;
 }

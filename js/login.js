@@ -30,6 +30,7 @@ function sendLoginRequest(loginDetails) {
         return res.json();
     }).then(data => {
         token = data["token"];
+        window.location.replace("/admin.html");
         console.log(token);
     }).catch(error => {
         let msg = "Something went wrong; please try logging in again."

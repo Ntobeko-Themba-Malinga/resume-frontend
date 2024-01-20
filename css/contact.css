@@ -12,6 +12,16 @@
     box-shadow: 2px 2px 2px #8ea1df;
 }
 
+#contact-message {
+    width: 50%;
+    padding: 0.8rem 0;
+    margin: 1rem auto;
+    text-align: center;
+    border: #333 solid 0.1rem;
+    border-radius: 0.24rem;
+    display: none;
+}
+
 #contact-body {
     padding: 2rem;
     text-align: center;
