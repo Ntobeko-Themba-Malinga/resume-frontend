@@ -1,5 +1,4 @@
-const apiEndpoint = "http://localhost:8080/api/v1/auth";
-let token;
+const apiEndpoint = baseUrl + "/api/v1/auth";
 
 function loginDisplayMesg(msg, status) {
     let loginMsg = document.getElementById("login-message");
@@ -29,7 +28,8 @@ function sendLoginRequest(loginDetails) {
         }
         return res.json();
     }).then(data => {
-        token = data["token"];
+        alert("fuck1 " + data["token"]);
+        localStorage.setItem('user', data["token"]);
         window.location.replace("/admin.html");
         console.log(token);
     }).catch(error => {

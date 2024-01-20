@@ -3,10 +3,49 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/admin_page.css">
         <title>ADMIN PAGE</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/admin_page.css">
     </head>
     <body>
-        
+        <div class="container">
+            <img src="img/menu-icon.png" alt="" id="menu-icon">
+            <div id="navbar">
+                <nav>
+                    <ul>
+                        <li><img class="link-img" src="img/home.png" alt=""> <a class="nav-link-text" href="contact.html">CONTACTS</a></li>
+                        <li><img class="link-img" src="img/skills.png" alt=""> <a class="nav-link-text" href="skills.html">SKILLS</a></li>
+                        <li><img class="link-img" src="img/projects.png" alt=""> <a class="nav-link-text" href="projects.html">PROJECTS</a></li>
+                        <li><img class="link-img" src="img/hobbies.png" alt=""> <a class="nav-link-text" href="hobbies.html">HOBBIES</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div id="main">
+                <div id="contact-page">
+                    <table id="contacts">
+                        <thead>
+                            <tr>
+                                <th>DATE</th>
+                                <th>NAME</th>
+                                <th>EMAIL</th>
+                                <th>MESSAGE</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contacts-table-body">
+                            <tr>
+                                <td>2024-01-20</td>
+                                <td>Ntobeko Malinga</td>
+                                <td>ntobekomalinga@email.com</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/index.js"></script>
+        <script src="js/admin_contact.js"></script>
     </body>
 </html>
