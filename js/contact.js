@@ -37,10 +37,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     body: JSON.stringify(contact)
                 }).then(res => {
                     if (!res.ok) {
-                        console.log("shit");
                         alert("Something went wrong!");
                         return null;
                     } else {
+                        clearInput();
                         alert("Contact successfully sent!");
                     }
                 }).catch(error => {
