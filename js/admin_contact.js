@@ -36,7 +36,7 @@ function addContactToTable(tableBody, data) {
         tr.appendChild(emailTd);
         tr.appendChild(messageTd);
 
-        tableBody.appendChild(tr);
+        tableBody.prepend(tr);
     }
 }
 

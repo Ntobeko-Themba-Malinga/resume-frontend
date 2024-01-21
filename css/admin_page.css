@@ -22,4 +22,5 @@ table, th, td {
 #contact-page #contacts {
     width: 98%;
     margin: 0 auto;
+    margin-bottom: 2rem;
 }
