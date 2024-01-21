@@ -33,6 +33,27 @@ function addSkillToTable(tableBody, data) {
     tableBody.prepend(tr);
 }
 
+function postSkillsRequest(tableBody, skill) {
+    fetch(apiEndpoint, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Accept: 'application/json',
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(skill)
+    }).then(res => {
+        if (!res.ok) {
+            return;
+        }
+        return res.json();
+    }).then(data => {
+        addSkillToTable(tableBody, data);
+    }).catch(error => {
+        return;
+    })
+}
+
 function getSkillsRequest(tableBody) {
     fetch(apiEndpoint, {
         method: "GET",
@@ -46,11 +67,9 @@ function getSkillsRequest(tableBody) {
         }
         return res.json();
     }).then(data => {
-        console.log(data);
         for (let i=0; i < data.length; i++) {
             addSkillToTable(tableBody, data[i]);
         }
-        console.log(data);
     }).catch(error => {
         return;
     })
@@ -58,7 +77,32 @@ function getSkillsRequest(tableBody) {
 
 document.addEventListener('DOMContentLoaded', () => {
     let tableBody = document.getElementById("skills-table-body");
-
+    let skillTitleInput = document.getElementById("skills-title-input");
+    let skillLevelInput = document.getElementById("skills-level");
+    let submitBtn = document.getElementById("skills-submit-btn");
     token = localStorage.getItem('user');
+
+    submitBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+       
+        title = skillTitleInput.value;
+        try {
+            level = Number(skillLevelInput.value);
+
+            if (title.trim().length !== 0
+                && level >= 1
+                && level <= 5) {
+                const skill = {
+                    title: title,
+                    level: level
+                } 
+                postSkillsRequest(tableBody, skill);
+            } else {
+                alert("Make sure the title and skill level fields are not empty");
+            }
+        } catch(err) {
+            alert("Enter only numbers between 1 and 5 for skill level");
+        }
+    });
     getSkillsRequest(tableBody);
 });
