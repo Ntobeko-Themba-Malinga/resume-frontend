@@ -28,7 +28,6 @@ function sendLoginRequest(loginDetails) {
         }
         return res.json();
     }).then(data => {
-        alert("fuck1 " + data["token"]);
         localStorage.setItem('user', data["token"]);
         window.location.replace("/admin.html");
         console.log(token);
