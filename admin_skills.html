@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ADMIN PAGE</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/admin_skills.css">
+    </head>
+    <body>
+        <div class="container">
+            <img src="img/menu-icon.png" alt="" id="menu-icon">
+            <div id="navbar">
+                <nav>
+                    <ul>
+                        <li><img class="link-img" src="img/home.png" alt=""> <a class="nav-link-text" href="contact.html">CONTACTS</a></li>
+                        <li><img class="link-img" src="img/skills.png" alt=""> <a class="nav-link-text" href="skills.html">SKILLS</a></li>
+                        <li><img class="link-img" src="img/projects.png" alt=""> <a class="nav-link-text" href="projects.html">PROJECTS</a></li>
+                        <li><img class="link-img" src="img/hobbies.png" alt=""> <a class="nav-link-text" href="hobbies.html">HOBBIES</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div id="main">
+                <div id="skills-page">
+                    <table id="skills">
+                        <thead>
+                            <tr>
+                                <th>SKILLS</th>
+                                <th>LEVEL</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="skills-table-body">
+                            <tr>
+                                <td>Java</td>
+                                <td>3/5</td>
+                                <td>
+                                    <button class="update-btn">UPDATE</button>
+                                </td>
+                                <td>
+                                    <button class="delete-btn">DELETE</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="skills-form">
+                        <form action="">
+                            <div>
+                                <input placeholder="SKILL TITLE..." id="skills-title-input" type="text">
+                            </div>
+                            <div>
+                                <input placeholder="SKILL LEVEL..." id="skills-number" type="number">
+                            </div>
+                            <div>
+                                <input id="skills-submit-btn" value="SUBMIT" type="submit">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/index.js"></script>
+        <script src="js/menu.js"></script> 
+        <script src="js/admin_skills.js"></script>
+    </body>
+</html>
