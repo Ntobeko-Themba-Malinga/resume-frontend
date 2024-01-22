@@ -47,6 +47,11 @@ document.addEventListener('DOMContentLoaded', () => {
             skillTitleInput.value = data["title"];
             skillLevelInput.value = data["level"];
         });
+
+        deleteBtn.addEventListener("click", () => {
+            skillId = id;
+            deleteSkillsRequest();
+        });
     }
 
 
@@ -63,8 +68,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
+    function deleteSkill() {
+        let skillDeleteBtn = document.getElementById("delete-" + skillId);
+
+        skillDeleteBtn.parentElement.parentElement.remove();
+        requestType = "POST";
+    }
+
+
+    function deleteSkillsRequest() {
+        fetch(apiEndpoint + "/" + skillId, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: 'application/json',
+                Authorization: `Bearer ${token}`
+            }
+        }).then(res => {
+            if (!res.ok) {
+                return;
+            }
+            return;
+        }).then(data => {
+            console.log("-1");
+            deleteSkill();
+        }).catch(error => {
+            return;
+        });
+    }
+
+
     function putSkillsRequest(skillId, skill) {
-        console.log(skillId);
         fetch(apiEndpoint + "/" + skillId, {
             method: "PUT",
             headers: {
@@ -82,7 +116,7 @@ document.addEventListener('DOMContentLoaded', () => {
             updateSkill(data["id"], data);
         }).catch(error => {
             return;
-        })
+        });
     }
 
 
@@ -104,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
             addSkillToTable(tableBody, data);
         }).catch(error => {
             return;
-        })
+        });
     }
 
 
@@ -126,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }).catch(error => {
             return;
-        })
+        });
     }
 
     token = localStorage.getItem('user');
