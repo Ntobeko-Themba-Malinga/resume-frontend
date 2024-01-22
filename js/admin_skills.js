@@ -1,85 +1,134 @@
-const apiEndpoint = baseUrl + "/api/v1/skills";
-let token;
-
-function addSkillToTable(tableBody, data) {
-    let tr = document.createElement("tr");
-    let id = data["id"];
-
-    let skillTitleId = document.createElement("td");
-    skillTitleId.innerText = data["title"];
-
-    let skillLevelTd = document.createElement("td");
-    skillLevelTd.innerText = data["level"] + "/5";
-
-    let updateBtnTd = document.createElement("td");
-    let updateBtn = document.createElement("button");
-    updateBtn.classList.add("update-btn");
-    updateBtn.id = "update" + id;
-    updateBtn.innerText = "UPDATE";
-    updateBtnTd.appendChild(updateBtn);
-
-    let deleteBtnTd = document.createElement("td");
-    let deleteBtn = document.createElement("button");
-    deleteBtn.classList.add("delete-btn");
-    deleteBtn.id = "delete" + id;
-    deleteBtn.innerText = "DELETE";
-    deleteBtnTd.appendChild(deleteBtn);
-
-    tr.appendChild(skillTitleId);
-    tr.appendChild(skillLevelTd);
-    tr.appendChild(updateBtnTd);
-    tr.appendChild(deleteBtnTd);
-
-    tableBody.prepend(tr);
-}
-
-function postSkillsRequest(tableBody, skill) {
-    fetch(apiEndpoint, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            Accept: 'application/json',
-            Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify(skill)
-    }).then(res => {
-        if (!res.ok) {
-            return;
-        }
-        return res.json();
-    }).then(data => {
-        addSkillToTable(tableBody, data);
-    }).catch(error => {
-        return;
-    })
-}
-
-function getSkillsRequest(tableBody) {
-    fetch(apiEndpoint, {
-        method: "GET",
-        headers: {
-            Accept: 'application/json',
-            Authorization: `Bearer ${token}`
-        }
-    }).then(res => {
-        if (!res.ok) {
-            return;
-        }
-        return res.json();
-    }).then(data => {
-        for (let i=0; i < data.length; i++) {
-            addSkillToTable(tableBody, data[i]);
-        }
-    }).catch(error => {
-        return;
-    })
-}
-
 document.addEventListener('DOMContentLoaded', () => {
+    const apiEndpoint = baseUrl + "/api/v1/skills";
+    let requestType = "POST";
     let tableBody = document.getElementById("skills-table-body");
     let skillTitleInput = document.getElementById("skills-title-input");
     let skillLevelInput = document.getElementById("skills-level");
     let submitBtn = document.getElementById("skills-submit-btn");
+    let token;
+    let skillId;
+
+    function addSkillToTable(tableBody, data) {
+        let tr = document.createElement("tr");
+        let id = data["id"];
+
+        let skillTitleId = document.createElement("td");
+        skillTitleId.innerText = data["title"];
+        skillTitleId.id = "title-" + id;
+
+        let skillLevelTd = document.createElement("td");
+        skillLevelTd.innerText = data["level"] + "/5";
+        skillLevelTd.id = "level-" + id;
+
+        let updateBtnTd = document.createElement("td");
+        let updateBtn = document.createElement("button");
+        updateBtn.classList.add("update-btn");
+        updateBtn.id = "update-" + id;
+        updateBtn.innerText = "UPDATE";
+        updateBtnTd.appendChild(updateBtn);
+
+        let deleteBtnTd = document.createElement("td");
+        let deleteBtn = document.createElement("button");
+        deleteBtn.classList.add("delete-btn");
+        deleteBtn.id = "delete-" + id;
+        deleteBtn.innerText = "DELETE";
+        deleteBtnTd.appendChild(deleteBtn);
+
+        tr.appendChild(skillTitleId);
+        tr.appendChild(skillLevelTd);
+        tr.appendChild(updateBtnTd);
+        tr.appendChild(deleteBtnTd);
+
+        tableBody.prepend(tr);
+
+        updateBtn.addEventListener("click", () => {
+            requestType = "PUT";
+            skillId = id;
+            skillTitleInput.value = data["title"];
+            skillLevelInput.value = data["level"];
+        });
+    }
+
+
+    function updateSkill(skillId, data) {
+        let title = document.getElementById("title-" + skillId);
+        let level = document.getElementById("level-" + skillId);
+
+        title.innerText = data["title"];
+        level.innerText = data["level"];
+
+        skillTitleInput.value = "";
+        skillLevelInput.value = "";
+        requestType = "POST";
+    }
+
+
+    function putSkillsRequest(skillId, skill) {
+        console.log(skillId);
+        fetch(apiEndpoint + "/" + skillId, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: 'application/json',
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(skill)
+        }).then(res => {
+            if (!res.ok) {
+                return;
+            }
+            return res.json();
+        }).then(data => {
+            updateSkill(data["id"], data);
+        }).catch(error => {
+            return;
+        })
+    }
+
+
+    function postSkillsRequest(tableBody, skill) {
+        fetch(apiEndpoint, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: 'application/json',
+                Authorization: `Bearer ${token}`
+            },
+            body: JSON.stringify(skill)
+        }).then(res => {
+            if (!res.ok) {
+                return;
+            }
+            return res.json();
+        }).then(data => {
+            addSkillToTable(tableBody, data);
+        }).catch(error => {
+            return;
+        })
+    }
+
+
+    function getSkillsRequest(tableBody) {
+        fetch(apiEndpoint, {
+            method: "GET",
+            headers: {
+                Accept: 'application/json',
+                Authorization: `Bearer ${token}`
+            }
+        }).then(res => {
+            if (!res.ok) {
+                return;
+            }
+            return res.json();
+        }).then(data => {
+            for (let i=0; i < data.length; i++) {
+                addSkillToTable(tableBody, data[i]);
+            }
+        }).catch(error => {
+            return;
+        })
+    }
+
     token = localStorage.getItem('user');
 
     submitBtn.addEventListener("click", (e) => {
@@ -96,7 +145,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     title: title,
                     level: level
                 } 
-                postSkillsRequest(tableBody, skill);
+
+                if (requestType === "POST") {
+                    postSkillsRequest(tableBody, skill);
+                } else {
+                    putSkillsRequest(skillId, skill);
+                }
             } else {
                 alert("Make sure the title and skill level fields are not empty");
             }
