@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.update-btn, .delete-btn {
+    background-color: green;
+    border: none;
+    padding: 0.4rem;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.delete-btn {
+    background-color: red;
+}
+
+.update-btn:hover {
+    font-weight: normal;
+}
+
+.update-btn:active {
+    background-color: #8ea1df;
+}
+
+h1, h2, h3, h4, h5, p {
+    text-shadow: none;
+}
+
+thead {
+    background: linear-gradient(to left, #8ea1df, #b3bad1);
+}
+
+table, th, td {
+    border: 0.1rem solid #333;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0.2rem 1rem;
+}
+
+#projects-page {
+    width: 100%;
+    height: 100vh;
+    overflow-y: scroll;
+    display: flex;
+}
+
+#projects-page #projects {
+    margin-left: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+#projects-page #projects-form {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1rem;
+}
+
+#projects-form form {
+    width: 60%;
+    height: 40%;
+    border: 0.1rem solid #333;
+    padding: 4rem;
+}
+
+#projects-form form input {
+    padding: 0.2rem 1rem; 
+    width: 100%;
+    height: 5vh;
+    margin-bottom: 1rem;
+}
+
+#projects-form form #projects-submit-btn {
+    margin-left: 1.5rem;
+}
+
+#projects-form #projects-submit-btn {
+    background-color: #8ea1df;
+    border: none;
+    cursor: pointer;
+}
+
+#projects-form #projects-submit-btn:hover {
+    background-color: #b3bad1;
+}
+
+@media (max-width: 1024px) {
+    #projects-page {
+        flex-direction: column;
+    }
+
+    #projects-page #projects-form {
+        margin-left: 0;
+    }
+
+    #projects-form form {
+        height: 50%;
+    }
+}

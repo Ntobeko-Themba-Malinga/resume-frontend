@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ADMIN PAGE</title>
         <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/admin_skills.css">
+        <link rel="stylesheet" href="css/admin_projects.css">
     </head>
     <body>
         <div class="container">
@@ -14,7 +14,7 @@
                 <nav>
                     <ul>
                         <li><img class="link-img" src="img/home.png" alt=""> <a class="nav-link-text" href="admin.html">CONTACTS</a></li>
-                        <li><img class="link-img" src="img/skills.png" alt=""> <a class="nav-link-text" href="admin_skills.html">SKILLS</a></li>
+                        <li><img class="link-img" src="img/projects.png" alt=""> <a class="nav-link-text" href="admin_projects.html">projects</a></li>
                         <li><img class="link-img" src="img/projects.png" alt=""> <a class="nav-link-text" href="admin_projects.html">PROJECTS</a></li>
                         <li><img class="link-img" src="img/hobbies.png" alt=""> <a class="nav-link-text" href="hobbies.html">HOBBIES</a></li>
                     </ul>
@@ -22,29 +22,33 @@
             </div>
 
             <div id="main">
-                <div id="skills-page">
-                    <table id="skills">
+                <div id="projects-page">
+                    <table id="projects">
                         <thead>
                             <tr>
-                                <th>SKILLS</th>
-                                <th>LEVEL</th>
+                                <th>PROJECT</th>
+                                <th>GIT REPO</th>
+                                <th>IMAGE URL</th>
                                 <th></th>
                                 <th></th>
                             </tr>
                         </thead>
-                        <tbody id="skills-table-body">
+                        <tbody id="projects-table-body">
                         </tbody>
                     </table>
-                    <div id="skills-form">
+                    <div id="projects-form">
                         <form action="">
                             <div>
-                                <input placeholder="SKILL TITLE..." id="skills-title-input" type="text">
+                                <input placeholder="PROJECT TITLE..." id="projects-title-input" type="text">
                             </div>
                             <div>
-                                <input placeholder="SKILL LEVEL..." id="skills-level" type="number">
+                                <input placeholder="GIT REPO..." id="projects-git-url" type="url">
                             </div>
                             <div>
-                                <input id="skills-submit-btn" value="SUBMIT" type="submit">
+                                <input placeholder="IMAGE URL..." id="projects-image-url" type="url">
+                            </div>
+                            <div>
+                                <input id="projects-submit-btn" value="SUBMIT" type="submit">
                             </div>
                         </form>
                     </div>
@@ -54,6 +58,6 @@
 
         <script src="js/index.js"></script>
         <script src="js/menu.js"></script> 
-        <script src="js/admin_skills.js"></script>
+        <script src="js/admin_projects.js"></script>
     </body>
 </html>
