@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     submitInput.addEventListener("click", (env) => {
         env.preventDefault();
+        enableLoader();
         submitInput.disabled = true;
         submitInput.style.cursor = "default";
         let validEmailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -76,5 +77,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         submitInput.disabled = false;
         submitInput.style.cursor = "pointer";
+        disableLoader();
     });
 });

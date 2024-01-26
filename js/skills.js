@@ -39,5 +39,7 @@ function getSkillsRequest(skills) {
 
 document.addEventListener('DOMContentLoaded', () => {
     let skills = document.getElementById("skills");
+    enableLoader();
     getSkillsRequest(skills);
+    disableLoader();
 });

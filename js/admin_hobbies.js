@@ -78,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function deleteProjectsRequest() {
+        enableLoader();
         fetch(apiEndpoint + "/" + ProjectId, {
             method: "DELETE",
             headers: {
@@ -96,10 +97,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }).catch(error => {
             return;
         });
+        disableLoader();
     }
 
 
     function putProjectsRequest(ProjectId, Project) {
+        enableLoader();
         fetch(apiEndpoint + "/" + ProjectId, {
             method: "PUT",
             headers: {
@@ -118,10 +121,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }).catch(error => {
             return;
         });
+        disableLoader();
     }
 
 
     function postProjectsRequest(tableBody, Project) {
+        enableLoader();
         fetch(apiEndpoint, {
             method: "POST",
             headers: {
@@ -140,10 +145,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }).catch(error => {
             return;
         });
+        disableLoader();
     }
 
 
     function getProjectsRequest(tableBody) {
+        enableLoader();
         fetch(apiEndpoint, {
             method: "GET",
             headers: {
@@ -162,6 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }).catch(error => {
             return;
         });
+        disableLoader();
     }
 
     token = localStorage.getItem('user');

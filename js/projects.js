@@ -46,5 +46,8 @@ function getProjectsRequest(projects) {
 
 document.addEventListener('DOMContentLoaded', () => {
     let projects = document.getElementById("projects-body");
+
+    enableLoader();
     getProjectsRequest(projects);
+    disableLoader();
 });

@@ -35,6 +35,7 @@ function sendLoginRequest(loginDetails) {
         let msg = "Something went wrong; please try logging in again."
         loginDisplayMesg(msg, "failure");
     })
+    disableLoader();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -44,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loginBtn.addEventListener("click", (e) => {
         e.preventDefault();
+        enableLoader();
         let email = emailInput.value;
         let password = passwordInput.value;
         let validEmailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -60,5 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
             let msg = "Please make sure you have entered a valid email and password.";
             loginDisplayMesg(msg, "failure");
         }
+        disableLoader();
     })
 });

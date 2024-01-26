@@ -77,6 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     function deleteSkillsRequest() {
+        enableLoader();
         fetch(apiEndpoint + "/" + skillId, {
             method: "DELETE",
             headers: {
@@ -95,10 +96,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }).catch(error => {
             return;
         });
+        disableLoader();
     }
 
 
     function putSkillsRequest(skillId, skill) {
+        enableLoader();
         fetch(apiEndpoint + "/" + skillId, {
             method: "PUT",
             headers: {
@@ -117,10 +120,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }).catch(error => {
             return;
         });
+        disableLoader();
     }
 
 
     function postSkillsRequest(tableBody, skill) {
+        enableLoader();
         fetch(apiEndpoint, {
             method: "POST",
             headers: {
@@ -139,10 +144,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }).catch(error => {
             return;
         });
+        disableLoader();
     }
 
 
     function getSkillsRequest(tableBody) {
+        enableLoader();
         fetch(apiEndpoint, {
             method: "GET",
             headers: {
@@ -161,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }).catch(error => {
             return;
         });
+        disableLoader();
     }
 
     token = localStorage.getItem('user');
