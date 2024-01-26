@@ -48,7 +48,7 @@ h1, h2, h3, h4, p {
     text-align: center;
 }
 
-.nav-link-text:hover {
+.nav-link-text:hover, .active {
     color: #fff;
     text-shadow: 1px 1px 2px #242323;
 }

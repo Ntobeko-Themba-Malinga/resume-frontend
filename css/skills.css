@@ -7,6 +7,7 @@
 
 #skills-header {
     /* padding: 1rem; */
+    padding-bottom: 1rem;
     border-bottom: 2px solid #333;
     display: flex;
     justify-content: space-around;
@@ -26,6 +27,7 @@
     border: #333 solid 2px;
     border-radius: 0.5rem;
     box-shadow: 4px 4px 4px #8ea1df;
+    margin-bottom: 10rem;
 }
 
 #skills-body ul li {
