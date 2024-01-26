@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let level = document.getElementById("level-" + skillId);
 
         title.innerText = data["title"];
-        level.innerText = data["level"];
+        level.innerText = data["level"] + "/5";
 
         skillTitleInput.value = "";
         skillLevelInput.value = "";
