@@ -24,8 +24,8 @@
 }
 
 #projects-body .project {
-    width: 25%;
-    height: 40%;
+    width: 40%;
+    /* height: 40%; */
     border: 2px #333 solid;
     margin: 0 auto;
     padding: 0.2rem;
