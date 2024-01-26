@@ -89,14 +89,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!res.ok) {
                 return;
             }
+            disableLoader();
             return;
         }).then(data => {
-            console.log("-1");
             deleteSkill();
         }).catch(error => {
+            disableLoader();
             return;
         });
-        disableLoader();
     }
 
 
@@ -114,13 +114,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!res.ok) {
                 return;
             }
+            disableLoader();
             return res.json();
         }).then(data => {
             updateSkill(data["id"], data);
         }).catch(error => {
+            disableLoader();
             return;
         });
-        disableLoader();
     }
 
 
@@ -138,13 +139,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!res.ok) {
                 return;
             }
+            disableLoader();
             return res.json();
         }).then(data => {
             addSkillToTable(tableBody, data);
         }).catch(error => {
+            disableLoader();
             return;
         });
-        disableLoader();
     }
 
 
@@ -160,15 +162,16 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!res.ok) {
                 return;
             }
+            disableLoader();
             return res.json();
         }).then(data => {
             for (let i=0; i < data.length; i++) {
                 addSkillToTable(tableBody, data[i]);
             }
         }).catch(error => {
+            disableLoader();
             return;
         });
-        disableLoader();
     }
 
     token = localStorage.getItem('user');

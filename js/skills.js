@@ -18,6 +18,7 @@ function addToSkills(skills, data) {
 }
 
 function getSkillsRequest(skills) {
+    enableLoader();
     fetch(apiEndpoint, {
         method: "GET",
         headers: {
@@ -27,19 +28,20 @@ function getSkillsRequest(skills) {
         if (!res.ok) {
             return;
         }
+        disableLoader();
         return res.json();
     }).then(data => {
         for (let i=0; i < data.length; i++) {
             addToSkills(skills, data[i]);
         }
     }).catch(error => {
+        disableLoader();
         return;
     })
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     let skills = document.getElementById("skills");
-    enableLoader();
+
     getSkillsRequest(skills);
-    disableLoader();
 });

@@ -25,6 +25,7 @@ function addToProjects(projects, data) {
 
 
 function getProjectsRequest(projects) {
+    enableLoader();
     fetch(apiEndpoint, {
         method: "GET",
         headers: {
@@ -34,12 +35,14 @@ function getProjectsRequest(projects) {
         if (!res.ok) {
             return;
         }
+        disableLoader();
         return res.json();
     }).then(data => {
         for (let i=0; i < data.length; i++) {
             addToProjects(projects, data[i]);
         }
     }).catch(error => {
+        disableLoader();
         return;
     })
 }
@@ -47,7 +50,5 @@ function getProjectsRequest(projects) {
 document.addEventListener('DOMContentLoaded', () => {
     let projects = document.getElementById("projects-body");
 
-    enableLoader();
     getProjectsRequest(projects);
-    disableLoader();
 });

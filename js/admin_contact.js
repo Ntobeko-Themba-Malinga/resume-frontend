@@ -41,7 +41,6 @@ function addContactToTable(tableBody, data) {
 }
 
 function getContactRequest(tableBody) {
-    enableLoader();
     fetch(apiEndpoint, {
         method: "GET",
         headers: {
@@ -52,23 +51,25 @@ function getContactRequest(tableBody) {
         if (!res.ok) {
             return;
         }
+        disableLoader();
         return res.json();
     }).then(data => {
         for (let i=0; i < data.length; i++) {
             addContactToTable(tableBody, data[i]);
         }
-        console.log(data);
     }).catch(error => {
+        disableLoader();
         return;
     })
-    disableLoader();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     let tableBody = document.getElementById("contacts-table-body");
 
     token = localStorage.getItem('user');
+    enableLoader();
     getContactRequest(tableBody);
+
     setInterval(() => {
         getContactRequest(tableBody);
     }, 2000);

@@ -20,6 +20,7 @@ function clearInputs(nameInput, emailInput, messageInput) {
 }
 
 function sendContactRequest(contactDetails) {
+    enableLoader();
     fetch(apiEndpoint, {
         method: "POST",
         headers: {
@@ -27,6 +28,7 @@ function sendContactRequest(contactDetails) {
         },
         body: JSON.stringify(contactDetails)
     }).then(res => {
+        disableLoader();
         if (!res.ok) {
             let msg =  "Something went wrong; please try logging in again."
             let status = "failure";
@@ -41,6 +43,7 @@ function sendContactRequest(contactDetails) {
         let msg =  "Something went wrong; please try logging in again."
         let status = "failure";
         contactDisplayMesg(msg, status)
+        disableLoader();
     })
 }
 
@@ -52,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     submitInput.addEventListener("click", (env) => {
         env.preventDefault();
-        enableLoader();
         submitInput.disabled = true;
         submitInput.style.cursor = "default";
         let validEmailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -77,6 +79,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         submitInput.disabled = false;
         submitInput.style.cursor = "pointer";
-        disableLoader();
     });
 });
