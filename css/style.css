@@ -137,7 +137,9 @@ nav ul li {
 @media (max-width: 1024px) {
     #menu-icon {
         display: block;
-        position: absolute;
+        position: fixed;
+        background-color: #b3bad1;
+        padding: 0.1rem 0.25rem;
         top: 0.5rem;
         right: 0.7rem;
         z-index: 3;
@@ -145,7 +147,7 @@ nav ul li {
 
     #navbar {
         width: 50%;
-        position: absolute;
+        position: fixed;
         top: 0;
         left: -50%;
         z-index: 3;
