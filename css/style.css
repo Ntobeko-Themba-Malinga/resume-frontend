@@ -138,10 +138,9 @@ nav ul li {
     #menu-icon {
         display: block;
         position: fixed;
-        background-color: #b3bad1;
         padding: 0.1rem 0.25rem;
-        top: 0.5rem;
-        right: 0.7rem;
+        top: 0;
+        right: 0;
         z-index: 3;
     }
 
