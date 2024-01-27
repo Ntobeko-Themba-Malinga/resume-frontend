@@ -2,7 +2,7 @@ const apiEndpoint = baseUrl + "/api/v1/hobbies";
 
 
 function addToProjects(projects, data) {
-    let a = document.createElement("a");
+    let a = document.createElement("p");
 
     let project = document.createElement("article");
     project.classList.add("project");

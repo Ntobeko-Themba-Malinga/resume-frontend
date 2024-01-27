@@ -1,7 +1,6 @@
 #about-page {
     background: linear-gradient(135deg, #fff, #333333a4);
     width: 100%;
-    min-height: 100vh;
 }
 
 #about-header {
@@ -30,6 +29,19 @@
     margin: 0 auto;
     text-align: center;
     font-size: 1.4rem;
+}
+
+#about-body ul {
+    list-style: none;
+}
+
+#about-body li {
+    margin-bottom: 1rem;
+}
+
+#about-body li h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
 }
 
 @media (max-width: 1024px) {

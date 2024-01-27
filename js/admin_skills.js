@@ -87,6 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }).then(res => {
             if (!res.ok) {
+                redirectToLogin();
                 return;
             }
             disableLoader();
@@ -112,6 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify(skill)
         }).then(res => {
             if (!res.ok) {
+                redirectToLogin();
                 return;
             }
             disableLoader();
@@ -137,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify(skill)
         }).then(res => {
             if (!res.ok) {
+                redirectToLogin();
                 return;
             }
             disableLoader();
@@ -160,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }).then(res => {
             if (!res.ok) {
+                redirectToLogin();
                 return;
             }
             disableLoader();

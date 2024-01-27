@@ -49,6 +49,7 @@ function getContactRequest(tableBody) {
         }
     }).then(res => {
         if (!res.ok) {
+            redirectToLogin();
             return;
         }
         disableLoader();

@@ -11,3 +11,7 @@ function disableLoader() {
     let loader = document.getElementById("loading");
     loader.style.display = "none";
 }
+
+function redirectToLogin() {
+    window.location.replace("/login.html");
+}
